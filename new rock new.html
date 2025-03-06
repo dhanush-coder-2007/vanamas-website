@@ -3,13 +3,85 @@
 <head>
     <title>rock paper scissors</title>
 </head>
+<b><h1 class="fulo"> Play rock paper scissors with computer</h1></b>
 <body>
-    <button onclick="player('rock')">Rock</button>
-    <button onclick="player('paper')">Paper</button>
-    <button onclick="player('scissors')">scissors</button>
+    <style>
+        .fulo{
+            color: red;
+        }
+        .king{
+            background-color:goldenrod ;
+            width: 100px;
+            height: 60px;
+            font-size: large;
+            border: none;
+            border-radius: 20px;
+            margin-right: 30px;
+            cursor: pointer;
+   transition-duration: 1s;
+   
+            
+           
+        }
+        .kpoin{
+            background-color:goldenrod ;
+            width: 100px;
+            height: 60px;
+            font-size: large;
+            border: none;
+            border-radius: 20px;
+            margin-right: 30px;
+            cursor: pointer;
+   transition-duration: 1s;
+   
+            
+        }
+        .hun{
+            background-color:goldenrod ;
+            width: 100px;
+            height: 60px;
+            font-size: large;
+            border: none;
+            border-radius: 20px;
+            margin-right: 30px;
+            cursor: pointer;
+   transition-duration: 1s;
+   
+            
+        }
+        .huji{
+            background-color:goldenrod ;
+            width: 100px;
+            height: 60px;
+            font-size: large;
+            border: none;
+            border-radius: 20px;
+            margin-right: 30px;
+            cursor: pointer;
+   transition-duration: 1s;
+   vertical-align: top;
+   
+            
+        }
+        .photos img{
+         height: 300px;
+         width: 300px;
+         margin-top: 30px;
+        }
+        .font{
+            font-size: xx-large;
+            margin-top: 1000px;
+        }
+    </style>
+    <button onclick="player('rock')" class="king">Rock</button>
+    <button onclick="player('paper')" class="kpoin">Paper</button>
+    <button onclick="player('scissors')"class="hun">scissors</button>
     <button onclick="score.wins=0,
     score.lose=0,
-    score.ties=0">Reset score</button>
+    score.ties=0" class="huji">Reset score</button>
+    <div class="photos"> <img src="photos/rps.webp" alt=""></div>
+       
+   
     <script>
         const score ={
             wins:0,
@@ -64,6 +136,11 @@
           
         
     </script>
+    <footer>
+        <h1 class="font">
+            the code is created by vanama sai dhanush
+        </h1>
+    </footer>
     
 </body>
 </html>
