@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <h1 class="title">SGPA CALUCLATOR</h1>
+</head>
+<body>
+    
+</body>
+<style>
+    .title{
+        text-align: center;
+    }
+    .credits
+    {
+      width: 200px;   
+  height: 30px;   
+  font-size: 16px; 
+  margin: 5px;
+    }
+   
+    .total{
+      text-align: center;
+    }
+    .grade{
+      width: 200px;   
+  height: 30px;   
+  font-size: 16px; 
+  margin: 5px;     
+    }
+    .caluclate{
+      align-items: center;
+      margin-top:20px ;
+      
+     
+    }
+</style>
+
+<div class="total">
+<label for="sub-1" >SUBJECT-1:</label>
+<input id="sub-1"class="grade">
+<label for="cre-1">CREDITS:</label>
+<input id="cre-1" class="credits">
+
+<div class="sub">
+<br for="sub-2">SUBJECT-2:</label>
+<input id="sub-2" class="grade">
+<label for="cre-2" >CREDITS:</label>
+<input id="cre-2"class="credits">
+</div>
+
+<div class="sub">
+<br for="sub-3" >SUBJECT-3:</label>
+<input id="sub-3"class="grade">
+<label for="cre-3" >CREDITS:</label>
+<input id="cre-3"class="credits">
+</div>
+
+<div class="sub">
+<br for="sub-4" >SUBJECT-4:</label>
+<input id="sub-4"class="grade">
+<label for="cre-4" >CREDITS:</label>
+<input id="cre-4"class="credits">
+</div>
+
+<div class="sub">
+<br for="sub-5">SUBJECT-5:</label>
+<input id="sub-5" class="grade">
+<label for="cre-5" >CREDITS:</label>
+<input id="cre-5"class="credits">
+</div>
+
+<div class="sub">
+<br for="sub-7" >SUBJECT-6:</label>
+<input id="sub-7"class="grade">
+<label for="cre-7" >CREDITS:</label>
+<input id="cre-7"class="credits">
+
+<div class="sub">
+<br for="sub-7" >SUBJECT-7:</label>
+<input id="sub-7"class="grade">
+<label for="cre-7" >CREDITS:</label>
+<input id="cre-7"class="credits">
+
+<div class="sub">
+<br for="sub-7" >SUBJECT-8:</label>
+<input id="sub-7"class="grade">
+<label for="cre-7" >CREDITS:</label>
+<input id="cre-7"class="credits">
+
+<div class="sub">
+<br for="sub-6" >SUBJECT-9:</label>
+<input id="sub-6"class="grade">
+<label for="cre-6" >CREDITS:</label>
+<input id="cre-6"class="credits">
+
+<div class="sub">
+<br for="sub-6" >SUBJECT-10:</label>
+<input id="sub-6"class="grade">
+<label for="cre-6" >CREDITS:</label>
+<input id="cre-6"class="credits">
+
+<div class="sub">
+<br for="sub-6" >SUBJECT-11:</label>
+<input id="sub-6"class="grade">
+<label for="cre-6" >CREDITS:</label>
+<input id="cre-6"class="credits">
+
+<div class="sub">
+<br for="sub-6" >SUBJECT-12:</label>
+<input id="sub-6"class="grade">
+<label for="cre-6" >CREDITS:</label>
+<input id="cre-6"class="credits">
+</div>
+
+<div class="caluclate">
+<button onclick="mul()">caluclate</button>
+<p id="result"></p>
+</div>
+
+<script>
+  let grades = {
+  "A+": 10,
+  "A": 9,
+  "B": 8,
+  "C": 7,
+  "D": 6,
+  "E": 5,
+  "F": 0
+};
+function mul() {
+      let gradeInputs = document.getElementsByClassName("grade");
+      let creditInputs = document.getElementsByClassName("credits");
+
+      let totalPoints = 0;
+      let totalCredits = 0;
+
+      for (let i = 0; i < gradeInputs.length; i++) {
+        let grade = gradeInputs[i].value.toUpperCase().trim(); // e.g., "A"
+        let credit = Number(creditInputs[i].value);
+
+        if (grades.hasOwnProperty(grade) && !isNaN(credit)) {
+          totalPoints += grades[grade] * credit;
+          totalCredits += credit;
+        }
+      }
+
+      let sgpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : 0;
+
+      document.getElementById("result").innerText = "Your SGPA is: " + sgpa;
+    }
+</script>
+</div>
+
+</html>
