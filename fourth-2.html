@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SGPA Calculator - Semester 8</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background-color: #f4f4f4;
+    }
+    .outer-box {
+      background-color: #8B4513;
+      padding: 30px;
+      border-radius: 15px;
+      color: #fff;
+      width: 500px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    select {
+      width: 100%;
+      padding: 5px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #555;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer-box">
+    <h2>SGPA Calculator - Semester 8</h2>
+    <form id="gradeForm">
+      <p>IT461 - Internship and Project (12 credits)</p>
+      <select name="grade">
+        <option value="">-- Select Grade --</option>
+        <option value="10">A+</option>
+        <option value="9">A</option>
+        <option value="8">B</option>
+        <option value="7">C</option>
+        <option value="6">D</option>
+        <option value="5">E</option>
+        <option value="0">F</option>
+      </select>
+
+      <button type="button" onclick="calculateSGPA()">Calculate SGPA</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function calculateSGPA() {
+      const grades = document.querySelectorAll("select");
+      let totalCredits = 0, totalPoints = 0;
+
+      const credits = [12]; // IT461 Internship and Project
+      
+      grades.forEach((grade, index) => {
+        if (grade.value !== "") {
+          totalCredits += credits[index];
+          totalPoints += credits[index] * parseInt(grade.value);
+        }
+      });
+
+      let sgpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : 0;
+      document.getElementById("result").innerText = "Your SGPA: " + sgpa;
+    }
+  </script>
+</body>
+</html>

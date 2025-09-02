@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CGPA Calculator (R-24)</title>
+</head>
+<body>
+    <h1 class="main">CGPA CALCULATOR (FOR R-24)</h1>
+    <ol class="years">
+        <li><a href="first.html">I YEAR</a></li>
+        <li><a href="second.html">II YEAR</a></li>
+        <li><a href="third.html">III YEAR</a></li>
+        <li><a href="fourth.html">IV YEAR</a></li>
+    </ol>
+
+    <h2>Enter Your SGPA</h2>
+    <form id="cgpaForm">
+        <p>Semester 1 SGPA: <input type="number" step="0.01" id="s1"></p>
+        <p>Semester 2 SGPA: <input type="number" step="0.01" id="s2"></p>
+        <p>Semester 3 SGPA: <input type="number" step="0.01" id="s3"></p>
+        <p>Semester 4 SGPA: <input type="number" step="0.01" id="s4"></p>
+        <p>Semester 5 SGPA: <input type="number" step="0.01" id="s5"></p>
+        <p>Semester 6 SGPA: <input type="number" step="0.01" id="s6"></p>
+        <p>Semester 7 SGPA: <input type="number" step="0.01" id="s7"></p>
+        <p>Semester 8 SGPA: <input type="number" step="0.01" id="s8"></p>
+        <button type="button" onclick="calculateCGPA()">Calculate CGPA</button>
+    </form>
+
+    <h2 id="result"></h2>
+
+    <style>
+        .main {
+            text-align: center;
+            color: brown;
+        }
+        .years {
+            font-size: x-large;
+            list-style-type: upper-roman;
+        }
+        form {
+            margin: 20px;
+            font-size: 18px;
+        }
+        input {
+            padding: 5px;
+            margin: 5px;
+            border-radius: 6px;
+            border: 1px solid #aaa;
+        }
+        button {
+            padding: 10px 15px;
+            background: brown;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+    function calculateCGPA() {
+        let sum = 0;
+        let count = 0;
+
+        for (let i = 1; i <= 8; i++) {
+            let val = parseFloat(document.getElementById("s" + i).value);
+            if (!isNaN(val) && val >= 0) {
+                sum += val;
+                count++;
+            }
+        }
+
+        if (count > 0) {
+            let cgpa = sum / count;
+            // Show exact 3 decimal places
+            document.getElementById("result").innerText =
+                "Your Overall CGPA is: " + cgpa.toFixed(3);
+        } else {
+            document.getElementById("result").innerText =
+                "Please enter at least one SGPA.";
+        }
+    }
+</script>
+</body>
+</html>
